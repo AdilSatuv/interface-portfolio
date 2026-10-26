@@ -8,3 +8,7 @@ Public portfolio with four fictional, AI-assisted learning projects. Next.js sta
 Videos use native controls, preload=none, playsInline and textual scene descriptions. Keyboard, reduced motion, axe and browser tests run in CI. Actual iPhone, Android, VoiceOver and TalkBack remain untested because devices are unavailable.
 
 Resource budgets cover initial external JS, HTML and raster assets. Video does not load automatically; files are intentionally excluded from the first-screen budget.
+
+
+## Workspace redesign
+The portfolio is a developer workspace rather than a marketing landing: persistent explorer navigation, filterable project folders, one active preview with working previous/next controls, a process timeline and compact contact panel. Selecting another project unmounts the previous video. No video source is assigned until an explicit play action. The four project websites remain separate and unchanged.
