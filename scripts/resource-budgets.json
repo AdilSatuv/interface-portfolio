@@ -1,0 +1,6 @@
+{
+  "initialJsGzip": 240000,
+  "homeHtmlGzip": 18000,
+  "largestRaster": 240000,
+  "totalRaster": 950000
+}
