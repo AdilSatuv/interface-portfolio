@@ -1,0 +1,1 @@
+export default function NotFound(){return <main style={{padding:'15vh 6%',maxWidth:800}}><p>404 / СТРАНИЦА НЕ НАЙДЕНА</p><h1 style={{fontSize:48,margin:'30px 0'}}>Вернёмся к проектам.</h1><a href="/">На главную →</a></main>}
