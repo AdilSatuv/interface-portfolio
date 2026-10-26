@@ -1,0 +1,2 @@
+import test from 'node:test';import assert from 'node:assert/strict';import {existsSync} from 'node:fs';import {projects} from '../content/projects.js';
+test('all projects have distinct demos and complete, local proof assets',()=>{assert.equal(new Set(projects.map(p=>p.site)).size,4);for(const p of projects){assert.equal(new URL(p.site).protocol,'https:');for(const ext of ['.webm','-poster.webp'])assert.ok(existsSync(`public/demos/${p.id}${ext}`),`Missing ${p.id}${ext}`)}});
