@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://adil-interface-portfolio-1026.brightsmile128.chatgpt.site/sitemap.xml
