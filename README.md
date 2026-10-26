@@ -1,14 +1,15 @@
-# AdilSatuv — интерфейсы в действии
+# AdilSatuv — multi-page portfolio
 
-Public portfolio with four fictional, AI-assisted learning projects. Next.js static export, React, SCSS Modules and Framer Motion. Each project has a demo, an engineering case and a silent interaction recording generated from the actual UI in CI. Public source links are offered only for public repositories. No invented commercial clients or outcomes.
+Eight statically generated HTML pages: `/`, `/projects/`, four `/projects/{id}/` cases, `/approach/`, and `/contact/`. Next.js App Router static export, React, SCSS Modules and Framer Motion. The background is white; the shared workspace navigation and project explorer are retained.
 
-## Run
-`npm ci`, `npm run dev`. Production: `npm run build`. Tests: `npm test`, `npm run test:e2e` after building.
+## Navigation and architecture
 
-Videos use native controls, preload=none, playsInline and textual scene descriptions. Keyboard, reduced motion, axe and browser tests run in CI. Actual iPhone, Android, VoiceOver and TalkBack remain untested because devices are unavailable.
+Navigation uses ordinary `<a>` links so changing page requests a separate HTML document. Every page renders its content and navigation on the server; reading cases and moving between pages works without JavaScript. Interactive filtering and video require JavaScript. `SiteShell` shares navigation and the page frame; `ProjectCase` renders per-project content from `content/case-studies.js`; `Work` owns catalogue selection; `VideoPreview` assigns media src only after explicit activation. Legacy root hashes redirect to the corresponding pages with `location.replace`.
 
-Resource budgets cover initial external JS, HTML and raster assets. Video does not load automatically; files are intentionally excluded from the first-screen budget.
+Each page has its own title, description and canonical URL. The sitemap lists all eight pages. All four project websites remain separate. These are fictional, AI-assisted learning projects, with no invented clients or commercial outcomes. Private repository access remains unchanged.
 
+## Run and validate
 
-## Workspace redesign
-The portfolio is a developer workspace rather than a marketing landing: persistent explorer navigation, filterable project folders, one active preview with working previous/next controls, a process timeline and compact contact panel. Selecting another project unmounts the previous video. No video source is assigned until an explicit play action. The four project websites remain separate and unchanged.
+`npm ci`, `npm run dev`. Production: `npm run build` exports `out/`. `npm test` checks content and local assets. `npm run test:e2e` checks document navigation, navigation without JavaScript, all eight routes, page titles/canonicals, accessibility, four viewport widths, video playback, legacy hashes and 404 handling. CI uses Chromium desktop/mobile emulation, Firefox and Linux WebKit. Actual phones and VoiceOver/TalkBack remain untested.
+
+`node scripts/check-budgets.mjs` checks every generated page against JS and HTML gzip limits, plus global raster limits. No video URL is assigned before explicit activation. Recordings and local font licenses are retained from the existing project.
